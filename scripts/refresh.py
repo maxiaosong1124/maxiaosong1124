@@ -84,12 +84,21 @@ def refresh():
         spec.loader.exec_module(builder)
         builder.ROOT = work
         builder.build(profile_only=True)
+        for name in ['index.html', 'style.css', 'app.js', 'terrain.js']:
+            shutil.copyfile(ROOT / 'web' / name, work / name)
+        shutil.copytree(ROOT / 'web/assets', work / 'assets')
+        import build_preview
+        build_preview.ROOT = work
+        build_preview.build_preview(production=True)
         generated = work / 'profile'
         for source in [generated / 'README.md', *(generated / 'assets').glob('*.svg')]:
             target = ROOT / source.relative_to(generated)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
-        print('Updated README and SVG assets from current public GitHub data.')
+        site = ROOT / '_site'
+        site.mkdir(exist_ok=True)
+        shutil.copyfile(work / 'preview.html', site / 'index.html')
+        print('Updated README, SVG assets and interactive website from the same public data.')
 
 
 if __name__ == '__main__':

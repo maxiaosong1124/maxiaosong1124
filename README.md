@@ -1,4 +1,6 @@
-![maxiaosong1124 - Engineering Terminal](assets/header.svg)
+[![maxiaosong1124 - Engineering Terminal](assets/header.svg)](https://maxiaosong1124.github.io/maxiaosong1124/)
+
+### [进入交互主页 / Open Interactive Terminal ↗](https://maxiaosong1124.github.io/maxiaosong1124/)
 
 [GitHub](https://github.com/maxiaosong1124) · [Email](mailto:maxiaosong1234@outlook.com) · Hangzhou, CN
 
@@ -64,4 +66,4 @@ I will continue to focus on systems performance optimization, building infrastru
 
 ---
 
-Public data snapshot: 2026-09-11T05:45:09+00:00. Activity is limited to the latest 100 public events; it is not a complete contribution history.
+Public data snapshot: 2026-09-11T05:52:02+00:00. Activity is limited to the latest 100 public events; it is not a complete contribution history.

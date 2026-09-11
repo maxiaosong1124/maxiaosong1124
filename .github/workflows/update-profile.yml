@@ -1,12 +1,22 @@
 name: Update profile
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'tools/**'
+      - 'scripts/**'
+      - 'data/personal.json'
+      - '.github/workflows/update-profile.yml'
   schedule:
     - cron: '30 0 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: update-profile
@@ -16,6 +26,9 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,3 +49,12 @@ jobs:
             git commit -m 'chore: refresh public profile data'
             git push
           fi
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload interactive website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy interactive website
+        id: deployment
+        uses: actions/deploy-pages@v4

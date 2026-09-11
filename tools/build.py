@@ -89,6 +89,8 @@ def build(profile_only=False):
     banner += text(34, 141, " / ".join(personal["languages"]), 15, "green")
     banner += text(34, 171, "SYSTEMS / HPC / ML INFERENCE  ·  vLLM / PyTorch", 13, "muted")
     banner += text(34, 204, "RL-KERNEL CORE CONTRIBUTOR", 12, "pink")
+    banner += '<rect x="485" y="112" width="24" height="3" fill="#b5ff5b"><animate attributeName="opacity" values="1;1;0;0;1" dur="1.6s" repeatCount="indefinite"/></rect>'
+    banner += '<path d="M0 278H120" stroke="#b5ff5b" stroke-width="2"><animateTransform attributeName="transform" type="translate" values="-120 0;960 0" dur="6s" repeatCount="indefinite"/></path>'
     banner += text(34, 242, "HANGZHOU, CN", 11, "muted") + text(650, 242, "[ BUILD. PROFILE. OPTIMIZE. ]", 11, "pink")
     for i in range(7):
         banner += f'<path d="M{688+i*29} 70v{40+i*7}l-24 24v40" fill="none" stroke="#283b26"/>'
@@ -133,6 +135,8 @@ def build(profile_only=False):
     lines[4:4] = ['### 00 / 个人介绍 · About Me', '', personal['intro'], '', personal['exploration'], '', personal['en']['intro'], '', personal['en']['exploration'], '', '**技术栈 / Tech stack**：' + ' · '.join(personal['languages']), '', '**熟悉的框架 / Familiar frameworks**：' + ' · '.join(personal['frameworks']), '', '**当前学习方向 / Currently learning**', '', personal['learning'], '', personal['en']['learning'], '', '**未来愿景 / Future vision**', '', personal['vision'], '', personal['en']['vision'], '']
     lines += ['', '---', '', f'Public data snapshot: {stamp}. Activity is limited to the latest 100 public events; it is not a complete contribution history.', '']
     lines[4:4] = ['**[RL-Kernel Core Contributor](https://github.com/RL-Align/RL-Kernel)**', '']
+    lines[0] = '[![maxiaosong1124 - Engineering Terminal](assets/header.svg)](https://maxiaosong1124.github.io/maxiaosong1124/)'
+    lines[2:2] = ['### [进入交互主页 / Open Interactive Terminal ↗](https://maxiaosong1124.github.io/maxiaosong1124/)', '']
     (ROOT / "profile/README.md").write_text('\n'.join(lines))
     if not profile_only:
         from build_preview import build_preview
