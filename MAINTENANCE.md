@@ -2,7 +2,11 @@
 
 The README is generated automatically. Edit `data/personal.json` for the bilingual biography, learning directions and vision; use the Actions tab to run **Update profile** afterward.
 
-The complete interactive terminal is deployed to https://maxiaosong1124.github.io/maxiaosong1124/ using GitHub Pages. The same daily job builds both versions from identical fresh data, uploads `_site/`, and deploys it. `web/` contains the webpage source and local Three.js assets. `tools/build_preview.py` bundles a self-contained HTML page with static fallback content. The README links to this site and uses an animated SVG header; GitHub itself cannot run the site's JavaScript or custom page CSS.
+The GitHub profile itself displays dark PNG modules for the bilingual biography, current learning, vision, projects, activity and contact details. Each module has a 480px mobile variant selected by `<picture>`. Project and event images link to their original records; the interactive terminal button remains available. A collapsed text version preserves readable/searchable biography content.
+
+The 3D contribution GIF is rendered daily from the existing Three.js scene using Playwright (64 frames, eight-second loop), then encoded with Pillow. Desktop and mobile versions are generated separately. Font packages provide predictable Chinese glyphs; dependencies are pinned. No chart is fabricated and no client-side JavaScript is required to animate the GIF on GitHub.
+
+The complete interactive terminal is deployed to https://maxiaosong1124.github.io/maxiaosong1124/ using GitHub Pages. The same daily job builds both versions from identical fresh data, uploads `_site/`, and deploys it. `web/` contains the webpage source and local Three.js assets. `tools/build_preview.py` bundles a self-contained HTML page with static fallback content. GitHub itself cannot run the site's JavaScript or custom page CSS.
 
 The workflow refreshes public GitHub data every day at 00:30 UTC (08:30 Asia/Shanghai). GitHub may delay scheduled runs. Public repository schedules may be disabled after 60 days without repository activity; check the Actions tab if updates stop.
 

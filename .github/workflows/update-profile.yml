@@ -34,10 +34,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install image and browser dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-wqy-zenhei fonts-dejavu-core
+          python -m pip install Pillow==12.0.0
+          npm ci --prefix tools/render --ignore-scripts --no-audit --no-fund
+          tools/render/node_modules/.bin/playwright install --with-deps chromium --only-shell
       - name: Fetch data and generate profile
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/refresh.py
+      - name: Render animated contribution terrain
+        run: |
+          node scripts/render_terrain.cjs
+          python scripts/encode_terrain.py
       - name: Commit updated profile
         run: |
           git config user.name 'github-actions[bot]'

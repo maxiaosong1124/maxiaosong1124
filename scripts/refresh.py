@@ -84,6 +84,9 @@ def refresh():
         spec.loader.exec_module(builder)
         builder.ROOT = work
         builder.build(profile_only=True)
+        import native_profile
+        snapshot=json.loads((data/'profile.js').read_text().removeprefix('window.PROFILE = ').strip().removesuffix(';'))
+        native_profile.build_native(snapshot,work/'profile',ROOT/'web/assets/avatar.png')
         for name in ['index.html', 'style.css', 'app.js', 'terrain.js']:
             shutil.copyfile(ROOT / 'web' / name, work / name)
         shutil.copytree(ROOT / 'web/assets', work / 'assets')
@@ -91,7 +94,9 @@ def refresh():
         build_preview.ROOT = work
         build_preview.build_preview(production=True)
         generated = work / 'profile'
-        for source in [generated / 'README.md', *(generated / 'assets').glob('*.svg')]:
+        for source in [generated / 'README.md', *(generated / 'assets').rglob('*')]:
+            if not source.is_file():
+                continue
             target = ROOT / source.relative_to(generated)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, target)
