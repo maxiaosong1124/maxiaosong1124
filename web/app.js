@@ -121,3 +121,25 @@ if (!$('.contributor-role')) {
   $('#readme-projects').closest('table').insertAdjacentHTML('afterend','<h4>Featured Repositories</h4>'+data.showcase.featured_html);
   [...document.querySelectorAll('.readme-body > p')].find(p=>p.textContent.includes('latest 100-event snapshot')).hidden = true;
 }
+document.querySelectorAll('details.featured-item').forEach(item => {
+  let hovering = false;
+  item.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse' && matchMedia('(hover: hover)').matches) {
+      hovering = true;
+      item.open = true;
+    }
+  });
+  item.addEventListener('pointerleave', () => {
+    hovering = false;
+    if (!item.contains(document.activeElement)) item.open = false;
+  });
+  item.addEventListener('focusout', event => {
+    if (!hovering && !item.contains(event.relatedTarget)) item.open = false;
+  });
+  item.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      item.open = false;
+      item.querySelector('summary').focus();
+    }
+  });
+});

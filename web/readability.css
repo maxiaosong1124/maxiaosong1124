@@ -7,6 +7,17 @@ body { font-size: 16px; }
 .featured-details li { padding-left: 5px; margin: 20px 0; }
 .featured-details li::marker { color: var(--green); }
 .featured-item .featured-project { border-bottom: 0; padding-bottom: 0; }
+.featured-item { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.featured-item > summary { cursor: pointer; list-style: none; align-items: center; }
+.featured-item > summary::-webkit-details-marker { display: none; }
+.featured-item > summary::after { content: '+'; color: var(--green); font-size: 24px; width: 20px; flex-shrink: 0; text-align: center; }
+.featured-item[open] > summary::after { content: '-'; }
+.featured-item > summary:hover .project-name { color: var(--green); }
+.featured-item > summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.featured-item > summary > span:first-child { flex: 1; }
+.featured-item[open] .featured-details { animation: reveal-project .18s ease-out; }
+.featured-repo-link { display: inline-block; margin: 0 0 12px; }
+@keyframes reveal-project { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 .personal-copy, .profile-intro .personal-copy { font-size: 18px; line-height: 1.85; }
 .profile-intro .personal-copy { max-width: 1020px; }
 .personal-copy p { margin-bottom: 22px; }

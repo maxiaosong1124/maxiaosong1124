@@ -35,9 +35,11 @@ def build_showcase(root, user, repos):
         summary = description['summary'] if description else (repo['description'] or '')
         details = ''
         if description:
-            details = '<div class="featured-details"><p lang="en">' + escape(description['summary_en']) + '</p><ul>'
+            details = '<div class="featured-details"><p lang="zh-CN">' + escape(summary) + '</p><p lang="en">' + escape(description['summary_en']) + '</p><ul>'
             details += ''.join('<li><p lang="zh-CN">' + escape(item['zh']) + '</p><p lang="en">' + escape(item['en']) + '</p></li>' for item in description['highlights'])
             details += '</ul></div>'
-        own.append(f'<article class="featured-item"><a class="project featured-project" href="{escape(repo["html_url"], quote=True)}" target="_blank" rel="noreferrer"><span><span class="project-name">{escape(repo["name"])}</span><span class="project-sub" lang="zh-CN">{escape(summary)}</span><span class="project-sub">{escape(repo["language"] or "")}</span></span><span class="project-right">★ {repo["stargazers_count"]}<small>STARS ↗</small></span></a>{details}</article>')
+        if not details:
+            details = '<div class="featured-details"><p>' + escape(summary) + '</p></div>'
+        own.append(f'<details class="featured-item"><summary class="project featured-project"><span><span class="project-name">{escape(repo["name"])}</span><span class="project-sub">{escape(repo["language"] or "")}</span></span><span class="project-right">★ {repo["stargazers_count"]}<small>STARS</small></span></summary>{details}<a class="text-link featured-repo-link" href="{escape(repo["html_url"], quote=True)}" target="_blank" rel="noreferrer">查看仓库 / View repository ↗</a></details>')
     own = ''.join(own)
     return {'projects': projects, 'featured': featured, 'projects_html': ''.join(rows), 'featured_html': own, 'table_html': ''.join(table), 'markdown': markdown}
