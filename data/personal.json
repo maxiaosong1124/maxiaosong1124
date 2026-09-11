@@ -1,0 +1,14 @@
+{
+  "intro": "我一直从事 Linux 系统与内核驱动开发、高并发通信架构设计、区块链密码学算法的 HPC 算子开发，以及机器学习推理系统的开发与性能优化。此外，我也曾从事自动驾驶通信架构开发、规划与控制算法开发，以及相关系统的性能优化。",
+  "exploration": "业余时间，我也持续探索 LLM 推理、训练与强化学习（RL）相关技术。",
+  "languages": ["C++", "C", "Rust", "Python", "CUDA", "Triton"],
+  "frameworks": ["vLLM", "PyTorch"],
+  "learning": "目前正在学习 RL 后训练的相关算法与框架，包括 vime、miles，以及训练框架 Megatron；同时深入探索集群通信、RDMA 通信，以及 Triton、LLVM、MLIR 等编译器相关技术。",
+  "vision": "未来，我将持续深耕系统性能优化领域，致力于打造追求极致性能的基础设施，覆盖 LLM、RL、自动驾驶与传统系统，并努力成长为系统性能优化领域的专家。",
+  "en": {
+    "intro": "My work spans Linux systems and kernel driver development, highly concurrent communication architectures, HPC kernels for blockchain cryptographic algorithms, and the development and performance optimization of machine learning inference systems. Previously, I developed communication architectures and planning and control algorithms for autonomous driving, and optimized the performance of these systems.",
+    "exploration": "In my spare time, I also explore LLM inference, training, and reinforcement learning (RL).",
+    "learning": "I am currently studying algorithms and frameworks for RL-based post-training, including vime and miles, as well as the Megatron training framework. I am also exploring cluster communication, RDMA, and compiler technologies such as Triton, LLVM, and MLIR.",
+    "vision": "I will continue to focus on systems performance optimization, building infrastructure that pushes performance to its limits across LLMs, reinforcement learning, autonomous driving, and traditional systems. My long-term goal is to become an expert in systems performance optimization."
+  }
+}

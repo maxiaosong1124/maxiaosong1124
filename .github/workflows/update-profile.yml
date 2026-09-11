@@ -1,0 +1,38 @@
+name: Update profile
+
+on:
+  schedule:
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-profile
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch data and generate profile
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/refresh.py
+      - name: Commit updated profile
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md assets/
+          if git diff --cached --quiet; then
+            echo 'Profile is already up to date.'
+          else
+            git commit -m 'chore: refresh public profile data'
+            git push
+          fi
