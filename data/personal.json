@@ -1,6 +1,17 @@
 {
   "intro": "我一直从事 Linux 系统与内核驱动开发、高并发通信架构设计、区块链密码学算法的 HPC 算子开发，以及机器学习推理系统的开发与性能优化。此外，我也曾从事自动驾驶通信架构开发、规划与控制算法开发，以及相关系统的性能优化。",
   "exploration": "业余时间，我也持续探索 LLM 推理、训练与强化学习（RL）相关技术。",
+  "featured_projects": {
+    "ncu-cuda-profiling-skill": {
+      "summary": "把 CUDA 性能分析融入 AI 编码工作流：让 Agent 借助 Nsight Compute 采集真实指标，辅助定位 kernel 瓶颈并整理优化建议。",
+      "summary_en": "Bring CUDA profiling into AI coding workflows: help agents collect real Nsight Compute metrics, investigate kernel bottlenecks, and organize optimization recommendations.",
+      "highlights": [
+        {"zh": "采集到报告：脚本串联 NCU 采集、CSV 导出、逐 kernel 摘要和 Markdown 分析报告。", "en": "From profiling to reports: automate NCU collection, CSV export, per-kernel summaries, and Markdown analysis."},
+        {"zh": "基于指标的初筛：结合 DRAM、L1/TEX、SM 吞吐率与 Occupancy 指标给出规则诊断、判断依据及优化建议。", "en": "Metric-based triage: use DRAM, L1/TEX, SM throughput, and occupancy metrics to produce rule-based diagnoses, reasoning, and optimization suggestions."},
+        {"zh": "适配多种 Agent：提供 Kimi、Claude Code、Cursor、Codex 安装入口，并支持环境检查和已有 NCU 报告分析。", "en": "Multiple agent integrations: installation options for Kimi, Claude Code, Cursor, and Codex, plus environment checks and analysis of existing NCU reports."}
+      ]
+    }
+  },
   "languages": ["C++", "C", "Rust", "Python", "CUDA", "Triton"],
   "frameworks": ["vLLM", "PyTorch"],
   "learning": "目前正在学习 RL 后训练的相关算法与框架，包括 vime、miles，以及训练框架 Megatron；同时深入探索集群通信、RDMA 通信，以及 Triton、LLVM、MLIR 等编译器相关技术。",

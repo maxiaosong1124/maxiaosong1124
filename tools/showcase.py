@@ -28,5 +28,16 @@ def build_showcase(root, user, repos):
         rows.append(f'<a class="project" href="{escape(p["url"], quote=True)}" target="_blank" rel="noreferrer"><span><span class="project-name">{escape(repo)}</span><span class="project-sub">{role}</span></span><span class="project-arrow">↗</span></a>')
         markdown.append(f'| [{repo}]({p["url"]}) | {role} |')
         table.append(f'<tr><td><a href="{escape(p["url"], quote=True)}">{escape(repo)}</a></td><td>{role}</td></tr>')
-    own = ''.join(f'<a class="project featured-project" href="{escape(r["html_url"], quote=True)}" target="_blank" rel="noreferrer"><span><span class="project-name">{escape(r["name"])}</span><span class="project-sub">{escape(r["description"] or "")}</span><span class="project-sub">{escape(r["language"] or "")}</span></span><span class="project-right">★ {r["stargazers_count"]}<small>STARS ↗</small></span></a>' for r in featured)
+    descriptions = json.loads((root / 'data/personal.json').read_text()).get('featured_projects', {})
+    own = []
+    for repo in featured:
+        description = descriptions.get(repo['name'])
+        summary = description['summary'] if description else (repo['description'] or '')
+        details = ''
+        if description:
+            details = '<div class="featured-details"><p lang="en">' + escape(description['summary_en']) + '</p><ul>'
+            details += ''.join('<li><p lang="zh-CN">' + escape(item['zh']) + '</p><p lang="en">' + escape(item['en']) + '</p></li>' for item in description['highlights'])
+            details += '</ul></div>'
+        own.append(f'<article class="featured-item"><a class="project featured-project" href="{escape(repo["html_url"], quote=True)}" target="_blank" rel="noreferrer"><span><span class="project-name">{escape(repo["name"])}</span><span class="project-sub" lang="zh-CN">{escape(summary)}</span><span class="project-sub">{escape(repo["language"] or "")}</span></span><span class="project-right">★ {repo["stargazers_count"]}<small>STARS ↗</small></span></a>{details}</article>')
+    own = ''.join(own)
     return {'projects': projects, 'featured': featured, 'projects_html': ''.join(rows), 'featured_html': own, 'table_html': ''.join(table), 'markdown': markdown}
