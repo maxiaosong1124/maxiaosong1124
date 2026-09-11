@@ -84,9 +84,9 @@ def refresh():
         spec.loader.exec_module(builder)
         builder.ROOT = work
         builder.build(profile_only=True)
-        import native_profile
+        import entry_profile
         snapshot=json.loads((data/'profile.js').read_text().removeprefix('window.PROFILE = ').strip().removesuffix(';'))
-        native_profile.build_native(snapshot,work/'profile',ROOT/'web/assets/avatar.png')
+        entry_profile.build_entry(snapshot,work/'profile',ROOT/'web/assets/avatar.png')
         for name in ['index.html', 'style.css', 'app.js', 'terrain.js']:
             shutil.copyfile(ROOT / 'web' / name, work / name)
         shutil.copytree(ROOT / 'web/assets', work / 'assets')
