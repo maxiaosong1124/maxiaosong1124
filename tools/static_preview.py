@@ -123,7 +123,7 @@ def render_static(source, root):
     fill('readme-events', ''.join(f'<tr><td>{event["date"][:10]}</td><td><a href="{e(event["url"])}">{e(event["label"])}{(" #"+str(event["number"])) if event["number"] else ""}</a></td><td>{e(event["repo"])}</td></tr>' for event in data['events'][:8]))
     fill('readme-stamp', 'Public data snapshot: ' + e(data['updated']) + '. Activity is limited to the latest 100 public events; it is not a complete contribution history.')
     showcase = data['showcase']
-    badge = '<a class="contributor-role" href="https://github.com/RL-Align/RL-Kernel">RL-Kernel Core Contributor ↗</a>'
+    badge = '<a class="contributor-role" href="https://github.com/RL-Align/RL-Kernel">RL-Kernel Maintainer ↗</a>'
     doc.find(**{'class': 'role'}).children.append(badge)
     fill('contributed-projects', showcase['projects_html'])
     fill('personal-repos', showcase['featured_html'])

@@ -11,17 +11,17 @@ def build_entry(data, output, avatar_path):
         p = Panel(width)
         p.label('>_ ENGINEERING TERMINAL', GREEN)
         p.rule()
-        p.paragraph(data['user']['login'], size=48 if width>600 else 30, bold=True)
-        p.paragraph('RL-Kernel Core Contributor', size=22 if width>600 else 19, color=PINK)
+        p.paragraph(data['user']['login'], size=52 if width>600 else 34, bold=True)
+        p.paragraph('RL-Kernel Maintainer', size=28 if width>600 else 24, color=PINK)
         if width>600:
             avatar=Image.open(avatar_path).convert('RGB').resize((96,96),Image.Resampling.LANCZOS)
             p.image.paste(avatar,(width-152,84))
             p.draw.rectangle((width-157,79,width-51,185),outline=LINE,width=2)
         p.rule()
-        p.paragraph('进入个人主页',size=25,cjk=True,color=GREEN)
-        p.paragraph('ENTER MY TERMINAL  ->',size=22 if width>600 else 20,color=MUTED)
+        p.paragraph('进入个人主页',size=28,cjk=True,color=GREEN)
+        p.paragraph('ENTER MY TERMINAL  ->',size=24 if width>600 else 22,color=MUTED)
         p.save(assets/f'terminal{suffix}.png')
-    alt=escape(data['user']['login']+' | RL-Kernel Core Contributor | 进入个人主页 / Enter My Terminal',quote=True)
+    alt=escape(data['user']['login']+' | RL-Kernel Maintainer | 进入个人主页 / Enter My Terminal',quote=True)
     readme=f'''<p align="center">
   <a href="{SITE}">
     <picture>

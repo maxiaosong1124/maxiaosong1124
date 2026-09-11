@@ -87,7 +87,7 @@ def refresh():
         import entry_profile
         snapshot=json.loads((data/'profile.js').read_text().removeprefix('window.PROFILE = ').strip().removesuffix(';'))
         entry_profile.build_entry(snapshot,work/'profile',ROOT/'web/assets/avatar.png')
-        for name in ['index.html', 'style.css', 'app.js', 'terrain.js']:
+        for name in ['index.html', 'style.css', 'readability.css', 'app.js', 'terrain.js']:
             shutil.copyfile(ROOT / 'web' / name, work / name)
         shutil.copytree(ROOT / 'web/assets', work / 'assets')
         import build_preview

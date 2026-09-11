@@ -2,7 +2,7 @@
 
 The README is generated automatically. Edit `data/personal.json` for the bilingual biography, learning directions and vision; use the Actions tab to run **Update profile** afterward.
 
-The GitHub profile README contains only a clickable terminal banner with the username, Core Contributor role and bilingual entry label. `tools/entry_profile.py` generates desktop and 480px mobile images. The full biography, learning directions, vision, projects, activity and 3D scene live on the interactive website.
+The GitHub profile README contains only a clickable terminal banner with the username, RL-Kernel Maintainer role and bilingual entry label. `tools/entry_profile.py` generates desktop and 480px mobile images. The full biography, learning directions, vision, projects, activity and 3D scene live on the interactive website. `web/readability.css` sets the larger body, project and activity type sizes for desktop and mobile.
 
 The daily task continues to refresh the interactive website and its contribution data. It no longer installs a browser or regenerates README GIFs. Earlier native image modules and rendering tools remain in repository history/files for reference, but are not displayed or run by the active workflow. Pillow and system font packages generate the entry banner.
 

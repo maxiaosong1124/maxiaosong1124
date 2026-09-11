@@ -24,7 +24,7 @@ def build_showcase(root, user, repos):
     for p in projects:
         repo = p['repo']
         p['url'] = f'https://github.com/{repo}/issues?q=' + quote(f'author:{user["login"]}', safe='')
-        role = 'CORE CONTRIBUTOR' if repo == 'RL-Align/RL-Kernel' else 'PUBLIC CONTRIBUTIONS'
+        role = 'MAINTAINER' if repo == 'RL-Align/RL-Kernel' else 'PUBLIC CONTRIBUTIONS'
         rows.append(f'<a class="project" href="{escape(p["url"], quote=True)}" target="_blank" rel="noreferrer"><span><span class="project-name">{escape(repo)}</span><span class="project-sub">{role}</span></span><span class="project-arrow">↗</span></a>')
         markdown.append(f'| [{repo}]({p["url"]}) | {role} |')
         table.append(f'<tr><td><a href="{escape(p["url"], quote=True)}">{escape(repo)}</a></td><td>{role}</td></tr>')

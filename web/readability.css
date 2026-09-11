@@ -1,0 +1,83 @@
+/* Readable type sizes for the full terminal, including compact data surfaces. */
+body { font-size: 16px; }
+.personal-copy, .profile-intro .personal-copy { font-size: 18px; line-height: 1.85; }
+.profile-intro .personal-copy { max-width: 1020px; }
+.personal-copy p { margin-bottom: 22px; }
+.english-copy { line-height: 1.8; }
+h2, .bottom-grid h2 { font-size: 24px; }
+h2 > span, .section-meta { font-size: 13px; }
+.contributor-role { font-size: 18px; }
+.role { font-size: 16px; }
+.brand { font-size: 15px; }
+.mode, .local, .eyebrow, .kicker, .location, .avatar-wrap > span { font-size: 12px; }
+.stack > span, .text-link { font-size: 14px; }
+.stack > span { padding: 7px 11px; }
+.identity-bottom, .section-heading, .chart-heading { flex-wrap: wrap; }
+.subnav nav, .subnav > span { font-size: 12px; }
+.subnav { padding: 12px 0; }
+.metric-value { font-size: 42px; }
+.metric-value small, .metric-label { font-size: 12px; }
+.chart-heading, .chart-footer, .signal-bottom { font-size: 12px; }
+.project-name, .featured-project .project-name { font-size: 20px; }
+.project-sub, .repo-row, .repo-row > span { font-size: 15px; line-height: 1.7; }
+.project > span:first-child { min-width: 0; }
+.project-right { font-size: 16px; }
+.project-right small { font-size: 12px; }
+.data-note { font-size: 13px; }
+.signal-section select, .signal-summary > span, .signal-summary > span > span,
+.signal-axis, .signal-readout { font-size: 14px; }
+.signal-readout { height: auto; min-height: 40px; line-height: 1.7; }
+.signal-bottom { flex-wrap: wrap; line-height: 1.6; }
+.terrain-controls, .terrain-controls input { font-size: 13px; }
+.terrain-controls { gap: 16px; }
+.terrain { height: 400px; }
+.filters { flex-wrap: wrap; }
+.filters button { font-size: 14px; padding: 8px 10px; }
+.activity-table-head, .event-row { grid-template-columns: 170px minmax(0,1.25fr) minmax(0,1fr) 20px; }
+.activity-table-head, .event-date, .activity-footer { font-size: 13px; }
+.event-row { font-size: 16px; line-height: 1.6; padding: 20px 0; }
+.event-title { font-size: 14px; white-space: normal; overflow-wrap: anywhere; max-width: none; }
+.contact > a { font-size: 16px; line-height: 1.7; }
+footer { font-size: 12px; flex-wrap: wrap; line-height: 1.7; }
+.readme-body p, .readme-body .personal-copy { font-size: 17px; }
+.readme-body table { font-size: 15px; }
+.readme-body h3 { font-size: 24px; }
+.readme-file { font-size: 14px; }
+@media (max-width: 900px) {
+  .workspace-grid { grid-template-columns: 1fr; gap: 0; }
+  .subnav > span { display: none; }
+  .signal-bars { height: 180px; }
+  .activity-table-head, .event-row { grid-template-columns: 155px minmax(0,1.2fr) minmax(0,1fr) 18px; }
+}
+@media (max-width: 620px) {
+  .personal-copy, .profile-intro .personal-copy { font-size: 17px; }
+  h2, .bottom-grid h2 { font-size: 22px; }
+  .contributor-role { font-size: 17px; }
+  .role { font-size: 14px; max-width: none; }
+  .location, .eyebrow, .kicker, .mode { font-size: 12px; }
+  .eyebrow { flex-wrap: wrap; gap: 10px; }
+  .stack > span { font-size: 13px; padding: 6px 8px; }
+  .subnav nav { display: grid; grid-template-columns: 1fr 1fr; font-size: 12px; gap: 14px; }
+  .metric { padding: 0 12px; }
+  .metric-value { font-size: 36px; gap: 8px; }
+  .metric-label, .metric-value small { font-size: 11px; }
+  .chart-heading { font-size: 12px; }
+  #telemetry #heatmap-detail { font-size: 12px; }
+  #date-range { max-width: 150px; font-size: 12px; }
+  .chart-footer { align-items: flex-start; }
+  .chart-footer > .muted { max-width: 150px; }
+  .terrain { height: 300px; }
+  .terrain-controls { max-width: 100%; gap: 10px; font-size: 12px; }
+  .terrain-controls input { font-size: 12px; }
+  .terrain-controls input[type=date] { max-width: 130px; }
+  .filters { gap: 4px; }
+  .filters button { font-size: 13px; padding: 8px 6px; }
+  .event-row { grid-template-columns: minmax(0,1fr) 18px; }
+  .event-date { font-size: 13px; }
+  .event-repo { font-size: 14px; }
+  .event-title { max-width: none; font-size: 14px; }
+  .event-arrow { top: 46px; }
+  .readme-file { flex-wrap: wrap; }
+  .readme-body p, .readme-body .personal-copy { font-size: 16px; }
+  .readme-body table { font-size: 14px; }
+}

@@ -115,7 +115,7 @@ $('#projects .data-note').hidden = true;
 $('#readme-projects').innerHTML = data.showcase.table_html;
 $('#readme-projects').closest('table').querySelector('thead').innerHTML = '<tr><th>Project</th><th>Contribution</th></tr>';
 if (!$('.contributor-role')) {
-  const badge = '<a class="contributor-role" href="https://github.com/RL-Align/RL-Kernel">RL-Kernel Core Contributor ↗</a>';
+  const badge = '<a class="contributor-role" href="https://github.com/RL-Align/RL-Kernel">RL-Kernel Maintainer ↗</a>';
   $('.role').insertAdjacentHTML('beforeend',badge);
   $('.readme-body').insertAdjacentHTML('afterbegin',badge);
   $('#readme-projects').closest('table').insertAdjacentHTML('afterend','<h4>Featured Repositories</h4>'+data.showcase.featured_html);
